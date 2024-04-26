@@ -2,7 +2,7 @@ import Calorie from "../Models/calorieModel.js";
 
 export default function calories(server, mongoose) {
   // GET request to list all calorie entries
-  server.get("/Api/calories", async (req, res) => {
+  server.get("/api/calories", async (req, res) => {
     try {
       // Retrieve all calorie entries from the database
       const calories = await Calorie.find();
@@ -14,7 +14,7 @@ export default function calories(server, mongoose) {
   });
 
   // POST request to create a new calorie entry
-  server.post("/Api/calories", async (req, res) => {
+  server.post("/api/calories", async (req, res) => {
     try {
       const { userId, date, caloriesConsumed,  } = req.body;
       if (!userId || !date || !caloriesConsumed ) {
@@ -50,7 +50,7 @@ export default function calories(server, mongoose) {
   });
 
   // DELETE request to delete an existing calorie entry
-  server.delete("/Api/calories/:id", async (req, res) => {
+  server.delete("/api/calories/:id", async (req, res) => {
     try {
       // Delete the existing calorie entry with the given ID
       const deletedCalorieEntry = await Calorie.findByIdAndDelete(req.params.id);

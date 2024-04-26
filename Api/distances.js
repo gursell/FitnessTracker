@@ -2,7 +2,7 @@ import Distance from "../Models/distanceModel.js";
 
 export default function distances(server, mongoose) {
   // GET request to list all distance entries
-  server.get("/Api/distances", async (req, res) => {
+  server.get("/api/distances", async (req, res) => {
     try {
       // Retrieve all distance entries from the database
       const distances = await Distance.find();
@@ -14,7 +14,7 @@ export default function distances(server, mongoose) {
   });
 
   // POST request to create a new distance entry
-  server.post("/Api/distances", async (req, res) => {
+  server.post("/api/distances", async (req, res) => {
     try {
       const { userId, date, distanceKm } = req.body;
       if (!userId || !date || !distanceKm) {
@@ -34,7 +34,7 @@ export default function distances(server, mongoose) {
   });
 
   // PUT request to update an existing distance entry
-  server.put("/Api/distances/:id", async (req, res) => {
+  server.put("/api/distances/:id", async (req, res) => {
     try {
       // Update the existing distance entry with the given ID
       const updatedDistanceEntry = await Distance.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -49,7 +49,7 @@ export default function distances(server, mongoose) {
   });
 
   // DELETE request to delete an existing distance entry
-  server.delete("/Api/distances/:id", async (req, res) => {
+  server.delete("/api/distances/:id", async (req, res) => {
     try {
       // Delete the existing distance entry with the given ID
       const deletedDistanceEntry = await Distance.findByIdAndDelete(req.params.id);
