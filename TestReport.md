@@ -8,7 +8,7 @@ Manual Test 1: Verify HTTP Status Code for GET Request
 Purpose is to ensure that the API returns the correct HTTP status code (e.g., 200 OK) for a successful GET request.
 
 Steps:
--Send a GET request to /api/activities.
+-Send a GET request to /api/steps.
 -Expected Result: Status code: 200 OK
 -Actual Result: Status code: 200 OK
 
