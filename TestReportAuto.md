@@ -1,6 +1,8 @@
 DOCUMENTATION of AUTOMATION TESTING
 
-Access the Postman collection for API testing at the following link: Postman Collection
+Access the Postman collection for API testing at the following link: 
+
+https://pvt237.postman.co/workspace/pvt23-Workspace~5e0a868f-303a-45e4-bf6b-64f6affb96e8/collection/24545792-c21600c4-cfbe-4338-b091-0203527f4de6?action=share&creator=24545792
 
 Automation Test 1: Verify HTTP Status Code for GET Request
 
