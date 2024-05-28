@@ -1,0 +1,1109 @@
+{
+	"info": {
+		"_postman_id": "c21600c4-cfbe-4338-b091-0203527f4de6",
+		"name": "Fitness Tracker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24545792",
+		"_collection_link": "https://pvt237.postman.co/workspace/pvt23-Workspace~5e0a868f-303a-45e4-bf6b-64f6affb96e8/collection/24545792-c21600c4-cfbe-4338-b091-0203527f4de6?action=share&source=collection_link&creator=24545792"
+	},
+	"item": [
+		{
+			"name": "Automation",
+			"item": [
+				{
+					"name": "8-Validation",
+					"item": [
+						{
+							"name": "users",
+							"item": [
+								{
+									"name": "AllUsers",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3000/api/users",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"users"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"username\": \"Nil\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/api/users/all",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"users",
+												"all"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"username\": \"NilIpek\",\n    \"email\": \"nilipek@yahoo.com\",\n    \"password\": \"wjflxmc75678I!!$\"\n\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/api/users",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"users"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Remove",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3000/api/users/66242229ef209a57a75196af",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"users",
+												"66242229ef209a57a75196af"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "steps",
+							"item": [
+								{
+									"name": "GetSteps",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3000/api/steps",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"steps"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n \"userId\": \"661e330cbca6df6cdde0b7df\",\n\"date\": \"2024-04-20T10:36:34.951Z\",\n\"count\": 123456\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/api/steps/stepCount",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"steps",
+												"stepCount"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "UpdateSteps",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3000/api/steps?stepCount=66242229ef209a57a75196af",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"steps"
+											],
+											"query": [
+												{
+													"key": "stepCount",
+													"value": "66242229ef209a57a75196af"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "DeleteSteps",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3000/api/steps?stepCounts=66242229ef209a57a75196af",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"steps"
+											],
+											"query": [
+												{
+													"key": "stepCounts",
+													"value": "66242229ef209a57a75196af"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "goals",
+							"item": [
+								{
+									"name": "GetGoals",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3000/api/goals",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"goals"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/api/users?66242229ef209a57a75196af=goals",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"users"
+											],
+											"query": [
+												{
+													"key": "66242229ef209a57a75196af",
+													"value": "goals"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "CreateGoals",
+									"request": {
+										"method": "POST",
+										"header": []
+									},
+									"response": []
+								},
+								{
+									"name": "RemoveGoals",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3000/api/goals",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"goals"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "calories",
+							"item": []
+						},
+						{
+							"name": "workouts",
+							"item": []
+						}
+					]
+				},
+				{
+					"name": "9-TestforUserRecordUpdate",
+					"item": [
+						{
+							"name": "UserData",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.sendRequest({",
+											"    url: \"http://localhost:3000/api/users\",",
+											"    method: 'GET',",
+											"    header: {",
+											"        'Content-Type': 'application/json'",
+											"    }",
+											"}, function (err, res) {",
+											"    pm.test(\"Get User Data\", function () {",
+											"        // Check if user data retrieval was successful",
+											"        pm.expect(err).to.be.null;",
+											"        pm.expect(res).to.have.property('code', 200);",
+											"        ",
+											"        // Extracting the user ID from the response",
+											"        const userId = res.json()[0]._id;",
+											"",
+											"        // Saving the user ID in an environment variable",
+											"        pm.environment.set(\"userId\", userId);",
+											"    });",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateUser",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Get the user ID from the environment",
+											"const userId = pm.environment.get(\"userId\");",
+											"",
+											"// Send the PUT request to update the user record",
+											"pm.sendRequest({",
+											"    url: http://localhost:3000/api/users/${userId},",
+											"    method: 'PUT',",
+											"    header: {",
+											"        'Content-Type': 'application/json',",
+											"    },",
+											"    body: {",
+											"        \"username\": \"User234Updated\",",
+											"    }",
+											"}, function (err, res) {",
+											"    // Save the updated username from the request body in environment variable",
+											"    const updatedUsername = pm.response.json().username;",
+											"    pm.environment.set(\"updatedUsername\", updatedUsername);",
+											"    console.log(updatedUsername);",
+											"",
+											"    pm.test(\"Update User Record\", function () {",
+											"        // Check if the user record update was successful",
+											"        pm.expect(err).to.be.null;",
+											"        pm.expect(res).to.have.property('code', 200);",
+											"    });",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/users?userID",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"users"
+									],
+									"query": [
+										{
+											"key": "userID",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetUpdatedUSer",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Get the user ID from the environment",
+											"const userId = pm.environment.get(\"userId\");",
+											"",
+											"// Get Updated User Data",
+											"pm.sendRequest({",
+											"    url: http://localhost:3000/api/users/${userId},",
+											"    method: 'GET',",
+											"    header: {",
+											"        'Content-Type': 'application/json',",
+											"    }",
+											"}, function (err, res) {",
+											"    pm.test(\"Get Updated User Data\", function () {",
+											"        // Check if fetching updated user data was successful",
+											"        pm.expect(err).to.be.null;",
+											"        pm.expect(res).to.have.property('code', 200);",
+											"",
+											"        // Compare the updated username with the saved value",
+											"        const savedUsername = pm.environment.get(\"updatedUsername\");",
+											"        pm.expect(res.json().username).to.eql(savedUsername);",
+											"    });",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/users?userID",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"users"
+									],
+									"query": [
+										{
+											"key": "userID",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "11-DatabaseDisconnet",
+					"item": [
+						{
+							"name": "DBdisconnet",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Connect to the database and capture initial data",
+											"pm.sendRequest({",
+											"    url: \"http://localhost:3000/api/users/all?disconnect=false\",",
+											"    method: 'GET',",
+											"    header: {",
+											"        'Content-Type': 'application/json'",
+											"    }",
+											"}, function (err, res) {",
+											"    pm.expect(err).to.be.null;",
+											"    pm.expect(res).to.have.property('code', 200);",
+											"",
+											"    // Capture the initial state of the database",
+											"    const initialData = res.json();",
+											"    const initialDataLength = initialData.length;",
+											"    const thirdInitialUser = initialData[2]; // Assuming the third object",
+											"",
+											"    pm.test(\"Verify database disconnection\", function () {",
+											"        // Disconnect from the database",
+											"        pm.sendRequest({",
+											"            url: \"http://localhost:3000/api/users/all?disconnect=true\",",
+											"            method: 'GET',",
+											"            header: {",
+											"                'Content-Type': 'application/json'",
+											"            }",
+											"        }, function (err, res) {",
+											"            pm.expect(err).to.be.null;",
+											"            pm.expect(res.json()).to.have.property('message', 'An error occurred on the server while fetching users');",
+											"        });",
+											"    });",
+											"",
+											"    pm.test(\"Verify database reconnection\", function () {",
+											"        // Reconnect to the database",
+											"        pm.sendRequest({",
+											"            url: \"http://localhost:3000/api/users/all?disconnect=false\",",
+											"            method: 'GET',",
+											"            header: {",
+											"                'Content-Type': 'application/json'",
+											"            }",
+											"        }, function (err, res) {",
+											"            pm.expect(err).to.be.null;",
+											"            pm.expect(res).to.have.property('code', 200);",
+											"        });",
+											"    });",
+											"",
+											"    pm.test(\"Compare database state before and after reconnection\", function () {",
+											"        // Compare the length of the data before and after reconnection",
+											"        const finalDataLength = res.json().length;",
+											"        pm.expect(finalDataLength).to.eql(initialDataLength);",
+											"",
+											"        // Compare specific properties of the third user object before and after reconnection",
+											"        const thirdFinalUser = res.json()[2]; // Assuming the third object",
+											"        pm.expect(thirdFinalUser._id).to.eql(thirdInitialUser._id);",
+											"        pm.expect(thirdFinalUser.username).to.eql(thirdInitialUser.username);",
+											"        pm.expect(thirdFinalUser.email).to.eql(thirdInitialUser.email);",
+											"        pm.expect(thirdFinalUser.createdAt).to.eql(thirdInitialUser.createdAt);",
+											"    });",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete-request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Getting user data and saving the id of the first user",
+											"pm.sendRequest({",
+											"    url: \"http://localhost:3000/api/users\",",
+											"    method: 'GET',",
+											"    header: {",
+											"        'Content-Type': 'application/json'",
+											"    }",
+											"}, function (err, res) {",
+											"    pm.expect(err).to.be.null;",
+											"    pm.expect(res).to.have.property('code', 200);",
+											"    ",
+											"    // Capture the id of the first user from the array",
+											"    pm.environment.set(\"userIdToDelete\", res.json()[0]._id);",
+											"    ",
+											"    // Capture the initial state of the database",
+											"    pm.environment.set(\"initialDataLength\", res.json().length);",
+											"});",
+											"",
+											"// Test to verify disconnection",
+											"pm.test(\"Verify disconnection\", function (){",
+											"    pm.sendRequest({",
+											"        url: \"http://localhost:3000/api/users?disconnect=true\",",
+											"        method: 'GET',",
+											"        header: {",
+											"            'Content-Type': 'application/json'",
+											"        }",
+											"    }, function (err, res) {",
+											"        pm.expect(err).to.be.null;",
+											"        pm.expect(res).to.have.property('code', 500);",
+											"    });",
+											"});",
+											"",
+											"// Test for delete route disconnection",
+											"pm.test(\"Verify delete route disconnection\", function () {",
+											"    // Getting the user ID from the environment variable",
+											"    const userIdToDelete = pm.environment.get(\"userIdToDelete\");",
+											"",
+											"    pm.sendRequest({",
+											"        url: http://localhost:3000/api/users/${userIdToDelete}?disconnect=true,",
+											"        method: 'DELETE',",
+											"        header: {",
+											"            'Content-Type': 'application/json'",
+											"        }",
+											"    }, function (err, res) {",
+											"        pm.expect(err).to.be.null;",
+											"        pm.expect(res).to.have.property('code', 500);",
+											"        pm.expect(res.json()).to.have.property('message', 'An error occurred on the server while removing of user');",
+											"    });",
+											"});",
+											"",
+											"// Test to verify user existence after disconnection",
+											"pm.test(\"Verify user existence after disconnection\", function () {",
+											"    // Getting the user ID from the environment variable",
+											"    const userIdToDelete = pm.environment.get(\"userIdToDelete\");",
+											"",
+											"    // Reconnecting to the database and checking the length of the data and that the user still exists",
+											"    pm.sendRequest({",
+											"        url: \"http://localhost:3000/api/users\",",
+											"        method: 'GET',",
+											"        header: {",
+											"            'Content-Type': 'application/json'",
+											"        }",
+											"    }, function (err, res) {",
+											"        pm.expect(err).to.be.null;",
+											"",
+											"          // Get the initial data length",
+											"        const initialDataLength = pm.environment.get(\"initialDataLength\");",
+											"        ",
+											"        // Compare the initial data length with the length after reconnection",
+											"        pm.expect(res.json().length).to.eql(initialDataLength);",
+											"",
+											"         // Check if the user still exists in the database",
+											"        const users = res.json();",
+											"        const userExists = users.some(user => user._id === userIdToDelete);",
+											"        pm.expect(userExists).to.be.true;",
+											"    });",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/users?disconnet=false",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"users"
+									],
+									"query": [
+										{
+											"key": "disconnet",
+											"value": "false"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "1-httpStatusCode",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200 OK\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/steps",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"steps"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2-DataFormat",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response data format is JSON\", function () {",
+									"    // Step 1: Check if the Content-Type header is present in the response",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"",
+									"    // Step 2: Get the value of the Content-Type header",
+									"    const contentType = pm.response.headers.get(\"Content-Type\");",
+									"",
+									"    // Step 3: Check if the Content-Type header indicates JSON format",
+									"    pm.expect(contentType).to.include(\"application/json\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/calories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"calories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3-InvalidRequest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 404 not found for invalid request\", function () {",
+									"    pm.response.to.have.status(404); ",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/steps/date",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"steps",
+								"date"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4-Filter",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "5-Filter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify API returns correct data with specific filters\", function () {",
+									"    // Parse the response body as JSON",
+									"    const responseBody = pm.response.json();",
+									"",
+									"    // Check if the response contains the expected keys",
+									"    pm.expect(responseBody).to.have.property(\"goals\");",
+									"    pm.expect(responseBody).to.have.property(\"currentPage\");",
+									"    pm.expect(responseBody).to.have.property(\"totalPages\");",
+									"    pm.expect(responseBody).to.have.property(\"totalGoals\");",
+									"",
+									"    // Check if currentPage and totalPage in response matches the value of page and limit in the request URL",
+									"    pm.expect(responseBody.currentPage).to.equal(2);",
+									"    pm.expect(responseBody.totalPages).to.equal(10);",
+									"    // Check if the goals array is not empty",
+									"    pm.expect(responseBody.activities.length).to.be.above(0);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/goals?page=2&limit=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"goals"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								},
+								{
+									"key": "limit",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6-Testhanling",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/users/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7-ConcurrentRequests",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response includes expected data\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.be.an('array');",
+									"    pm.expect(jsonData).to.have.lengthOf.at.least(1);",
+									"    pm.expect(jsonData[0]).to.have.property('property').that.includes('expected_value');",
+									"});",
+									"",
+									"// Paralel olarak isteklerin gönderilmesi",
+									"const promises = [];",
+									"for (var i = 0; i < 5; i++) {",
+									"    const requestPromise = new Promise((resolve, reject) => {",
+									"        pm.sendRequest({",
+									"            url: 'http://localhost:3000/api/goals?dailyStepGoals',",
+									"            method: 'GET'",
+									"        }, function (err, response) {",
+									"            if (err) {",
+									"                reject(err);",
+									"            }",
+									"            resolve(response);",
+									"        });",
+									"    });",
+									"    promises.push(requestPromise);",
+									"}",
+									"",
+									"",
+									"Promise.all(promises)",
+									"    .then(responses => {",
+									"        ",
+									"    })",
+									"    .catch(error => {",
+									"        console.error('Error:', error);",
+									"    });"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/goals?dailyStepGoals",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"goals"
+							],
+							"query": [
+								{
+									"key": "dailyStepGoals",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Manual Tests",
+			"item": [
+				{
+					"name": "1-httpStatusCode",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/steps",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"steps"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2-DataFormat",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/calories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"calories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3-InvalidRequest",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "4-Filter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/goals?page=6&sortField=createdAt&sortOrder=desc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"goals"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "6"
+								},
+								{
+									"key": "sortField",
+									"value": "createdAt"
+								},
+								{
+									"key": "sortOrder",
+									"value": "desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5-filter",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "6-testhandling",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "7-ConcurrentRequests",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/goals?dailyStepGoals",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"goals"
+							],
+							"query": [
+								{
+									"key": "dailyStepGoals",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

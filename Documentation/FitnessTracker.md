@@ -12,7 +12,7 @@ The Fitness Tracker API requires authentication for accessing user-specific info
 
 ## Endpoint Structure
 
-The base URL for the Fitness Tracker API is `http://localhost:3000/api`.
+The base URL for the Fitness Tracker API is `http://localhost:3002/api`.
 
 - `/users`: Manage user accounts and information.
 - `/workouts`: Log and retrieve workout activities.
