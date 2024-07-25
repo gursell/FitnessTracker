@@ -1,66 +1,108 @@
-import Calorie from "../Models/calorieModel.js";
+import express from 'express';
+import mongoose from 'mongoose';
+import Calorie from '../Models/calorieModel.js';
 
-export default function calories(server, mongoose) {
-  // GET request to list all calorie entries
-  server.get("/api/calories", async (req, res) => {
-    try {
-      // Retrieve all calorie entries from the database
-      const calories = await Calorie.find();
-      res.status(200).json({ message: "All calorie entries retrieved successfully", data: calories });
-    } catch (error) {
-      console.error("Error while retrieving calorie entries:", error);
-      res.status(500).json({ error: "Internal server error" });
-    }
-  });
+const app = express();
+app.use(express.json());
 
-  // POST request to create a new calorie entry
-  server.post("/api/calories", async (req, res) => {
+mongoose.connect("mongodb+srv://unlgrsel:gursel1234@cluster0.hl9pkld.mongodb.net/FitnessTracker-Gursel", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "MongoDB connection error:"));
+db.once("open", function() {
+  console.log("Connected to the database successfully");
+});
+
+// POST route to create a new calorie record
+ app.post("/api/calories", async (req, res) => {
     try {
-      const { userId, date, caloriesConsumed,  } = req.body;
-      if (!userId || !date || !caloriesConsumed ) {
-        return res.status(400).json({ message: "userId, date, caloriesConsumed, and caloriesBurned are required fields" });
-      }
-      const newCalorieEntry = new Calorie({
-        userId,
-        date,
-        caloriesConsumed,
-      
+      const calories = new Calorie({
+        userId: req.body.userId,
+        date: req.body.date,
+        caloriesConsumed: req.body.calories
       });
-      await newCalorieEntry.save();
-      res.status(201).json({ message: "Calorie entry created successfully", calorieEntry: newCalorieEntry });
+
+      const newCalories = await calories.save();
+      res.status(201).json(newCalories);
     } catch (error) {
-      console.error("Error while creating calorie entry:", error);
-      res.status(500).json({ error: "Internal server error" });
+      res.status(400).json({ message: error.message });
     }
   });
 
-  // PUT request to update an existing calorie entry
-  server.put("/api/calories/:id", async (req, res) => {
+// PUT route to update a calorie record
+app.put('/api/calories/:id', async (req, res) => {
     try {
-      // Update the existing calorie entry with the given ID
-      const updatedCalorieEntry = await Calorie.findByIdAndUpdate(req.params.id, req.body, { new: true });
-      if (!updatedCalorieEntry) {
-        return res.status(404).json({ error: "Calorie entry not found" });
-      }
-      res.status(200).json({ message: "Calorie entry updated successfully", data: updatedCalorieEntry });
-    } catch (error) {
-      console.error("Error while updating calorie entry:", error);
-      res.status(500).json({ error: "Internal server error" });
-    }
-  });
+        const { id } = req.params;
+        const updateData = req.body;
 
-  // DELETE request to delete an existing calorie entry
-  server.delete("/api/calories/:id", async (req, res) => {
-    try {
-      // Delete the existing calorie entry with the given ID
-      const deletedCalorieEntry = await Calorie.findByIdAndDelete(req.params.id);
-      if (!deletedCalorieEntry) {
-        return res.status(404).json({ error: "Calorie entry not found" });
-      }
-      res.status(204).json({ message: "Calorie entry deleted successfully" });
+        // Check if the updateData contains at least one field to update
+        if (!Object.keys(updateData).length) {
+            return res.status(400).json({ message: 'No update data provided' });
+        }
+
+        const updatedCalorie = await Calorie.findByIdAndUpdate(id, updateData, { new: true });
+
+        if (!updatedCalorie) {
+            return res.status(404).json({ message: 'Calorie record not found' });
+        }
+
+        res.status(200).json(updatedCalorie);
     } catch (error) {
-      console.error("Error while deleting calorie entry:", error);
-      res.status(500).json({ error: "Internal server error" });
+        console.error('Error while updating calorie record:', error);
+        res.status(500).json({ message: 'An error occurred while updating the calorie record', error: error.message });
     }
-  });
-}
+});
+
+// DELETE route to delete a calorie record
+app.delete('/api/calories/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        
+        const deletedCalorie = await Calorie.findByIdAndDelete(id);
+
+        if (!deletedCalorie) {
+            return res.status(404).json({ message: 'Calorie record not found' });
+        }
+
+        res.status(204).json({ message: 'Calorie record deleted successfully' });
+    } catch (error) {
+        console.error('Error while deleting calorie record:', error);
+        res.status(500).json({ message: 'An error occurred while deleting the calorie record', error: error.message });
+    }
+});
+
+// GET route to retrieve all calorie records
+app.get('/api/calories', async (req, res) => {
+    try {
+        const calories = await Calorie.find({});
+        res.status(200).json(calories);
+    } catch (error) {
+        console.error('Error while retrieving calorie records:', error);
+        res.status(500).json({ message: 'An error occurred while retrieving calorie records', error: error.message });
+    }
+});
+
+// GET route to retrieve a specific calorie record by ID
+app.get('/api/calories/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const calorie = await Calorie.findById(id);
+
+        if (!calorie) {
+            return res.status(404).json({ message: 'Calorie record not found' });
+        }
+
+        res.status(200).json(calorie);
+    } catch (error) {
+        console.error('Error while retrieving calorie record:', error);
+        res.status(500).json({ message: 'An error occurred while retrieving the calorie record', error: error.message });
+    }
+});
+
+const PORT = process.env.PORT || 3002;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});

@@ -1,11 +1,10 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const { Schema } = mongoose;
+const Schema = mongoose.Schema;
 
-const calorieSchema = new Schema({
+const caloriesSchema = new Schema({
   userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+    type: String,
     required: true
   },
   date: {
@@ -15,10 +14,9 @@ const calorieSchema = new Schema({
   caloriesConsumed: {
     type: Number,
     required: true
-  },
-  
+  }
 });
 
-const Calorie = mongoose.model("Calorie", calorieSchema);
+const Calories = mongoose.model('Calories', caloriesSchema);
 
-export default Calorie;
+export default Calories;

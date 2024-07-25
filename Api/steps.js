@@ -1,65 +1,72 @@
-import Step from "../Models/stepModel.js";
-
+import Steps from "../Models/stepModel.js";
 export default function steps(server, mongoose) {
-  // GET request to list all step entries
-  server.get("/api/steps", async (req, res) => {
-    try {
-      // Retrieve all step entries from the database
-      const steps = await Step.find();
-      res.status(200).json({ message: "All step entries retrieved successfully", data: steps });
-    } catch (error) {
-      console.error("Error while retrieving step entries:", error);
-      res.status(500).json({ error: "Internal server error" });
-    }
-  });
 
-  // POST request to create a new step entry
+
+  server.get("/api/steps", async (req, res) => {
+  try {
+    const stepsData = await Steps.find();
+    res.json(stepsData);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Ett fel inträffade", error });
+  }
+});
+
+
   server.post("/api/steps", async (req, res) => {
     try {
-      const { userId, date, stepCount } = req.body;
-      if (!userId || !date || !stepCount) {
-        return res.status(400).json({ message: "userId, date, and stepCount are required fields" });
-      }
-      const newStepEntry = new Step({
-        userId,
-        date,
-        stepCount,
-      });
-      await newStepEntry.save();
-      res.status(201).json({ message: "Step entry created successfully", stepEntry: newStepEntry });
-    } catch (error) {
-      console.error("Error while creating step entry:", error);
-      res.status(500).json({ error: "Internal server error" });
-    }
+  const steps = new Steps({
+    userId: req.body.userId,
+    date: req.body.date,
+    steps: req.body.steps
   });
 
-  // PUT request to update an existing step entry
+ 
+    const newSteps = await steps.save();
+    res.status(201).json(newSteps);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
+
+
   server.put("/api/steps/:id", async (req, res) => {
-    try {
-      // Update the existing step entry with the given ID
-      const updatedStepEntry = await Step.findByIdAndUpdate(req.params.id, req.body, { new: true });
-      if (!updatedStepEntry) {
-        return res.status(404).json({ error: "Step entry not found" });
-      }
-      res.status(200).json({ message: "Step entry updated successfully", data: updatedStepEntry });
-    } catch (error) {
-      console.error("Error while updating step entry:", error);
-      res.status(500).json({ error: "Internal server error" });
-    }
-  });
+  try {
+    const updatedSteps = await Steps.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    res.json(updatedSteps);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
 
-  // DELETE request to delete an existing step entry
-  server.delete("/api/steps/:id", async (req, res) => {
-    try {
-      // Delete the existing step entry with the given ID
-      const deletedStepEntry = await Step.findByIdAndDelete(req.params.id);
-      if (!deletedStepEntry) {
-        return res.status(404).json({ error: "Step entry not found" });
-      }
-      res.status(204).json({ message: "Step entry deleted successfully" });
-    } catch (error) {
-      console.error("Error while deleting step entry:", error);
-      res.status(500).json({ error: "Internal server error" });
+server.delete("/api/steps/:id", async (req, res) => {
+  try {
+    const deletedSteps = await Steps.findByIdAndDelete(req.params.id);
+    if (!deletedSteps) {
+      return res.status(404).json({ message: 'Steps data not found' });
     }
-  });
+    res.json({ message: 'Steps data deleted successfully' });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'An error occurred on the server' });
+  }
+});
+
+  
+  // Skapar en PUT-route för att uppdatera en stegräkning med ett specifikt ID.
+  server.put( '/api/stepCounts/:id', async ( req, res ) => {
+    try {
+      
+      const updatedStepCount = await StepCount.findByIdAndUpdate( req.params.id, req.body )
+  
+      if ( !updatedStepCount ) {
+        return res.status( 404 ).json( { message: 'Step count not found' } );
+      }
+      res.json( updatedStepCount );
+    } catch ( error ) {
+      console.error( error );
+      res.status( 500 ).json( { message: 'An error occurred on the server' } );
+    }
+  } );
+
 }

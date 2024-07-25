@@ -62,5 +62,47 @@ export default function workouts(server, mongoose) {
       console.error("Error while deleting workout entry:", error);
       res.status(500).json({ error: "Internal server error" });
     }
+
   });
+   // GET request to list all attractions with pagination and filtering
+  server.get("/api/workouts", async (req, res) => {
+    try {
+      const page = parseInt(req.query.page) || 1; // Current page
+      const pageSize = parseInt(req.query.pageSize) || 10; // Number of elements per page
+      const sortField = req.query.sortField || "_id"; // Fields for sorting
+      const sortOrder = req.query.sortOrder || "asc"; // Sorting direction
+
+      const sortOptions = {};
+      sortOptions[sortField] = sortOrder === "asc" ? 1 : -1;
+
+      let query = Workout.find();
+
+      // Apply filtering if category is provided
+      const category = req.query.category;
+      if (category) {
+        query = query.where('category').equals(category);
+      }
+
+      // Toplam sayıyı ve sayfaları hesapla
+      const totalWorkouts = await Workout.countDocuments(query.getQuery());
+      const totalPages = Math.ceil(totalWorkouts / pageSize);
+      const skip = (page - 1) * pageSize;
+
+      const workouts = await query
+        .sort(sortOptions)
+        .skip(skip)
+        .limit(pageSize);
+
+      res.status(200).json({
+        workouts,
+        currentPage: page,
+        totalPages,
+        totalWorkouts
+      });
+    } catch (error) {
+      console.error("Error while retrieving attractions:", error);
+      res.status(500).json({ error: "Internal server error" });
+    }
+  });
+
 }

@@ -5,6 +5,7 @@ import goals from "./Api/goals.js";
 import steps from "./Api/steps.js";
 import workouts from "./Api/workout.js";
 
+
 export default function apiRegister(server, mongoose) {
   // Register API routes
   users(server, mongoose);
@@ -13,4 +14,5 @@ export default function apiRegister(server, mongoose) {
   goals(server, mongoose);
   steps(server, mongoose);
   workouts(server, mongoose);
+ 
 }

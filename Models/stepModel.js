@@ -1,23 +1,21 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const { Schema } = mongoose;
-
-const stepSchema = new Schema({
+const stepsSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-    required: true
+    ref: 'User',
+    required: true // Example of a required field
   },
   date: {
     type: Date,
     required: true
   },
-  stepCount: {
+  steps: {
     type: Number,
-    required: true
+    required: true // Ensure steps field is required
   }
 });
 
-const Step = mongoose.model("Step", stepSchema);
+const Steps = mongoose.model('Steps', stepsSchema);
 
-export default Step;
+export default Steps;

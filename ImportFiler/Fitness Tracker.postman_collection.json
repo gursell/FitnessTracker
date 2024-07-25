@@ -22,12 +22,12 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:3000/api/users",
+											"raw": "http://localhost:3002/api/users",
 											"protocol": "http",
 											"host": [
 												"localhost"
 											],
-											"port": "3000",
+											"port": "3002",
 											"path": [
 												"api",
 												"users"
@@ -38,6 +38,20 @@
 								},
 								{
 									"name": "Update",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"request": {
 										"method": "PUT",
 										"header": [],
@@ -51,16 +65,16 @@
 											}
 										},
 										"url": {
-											"raw": "http://localhost:3000/api/users/all",
+											"raw": "http://localhost:3002/api/users/66242229ef209a57a75196af",
 											"protocol": "http",
 											"host": [
 												"localhost"
 											],
-											"port": "3000",
+											"port": "3002",
 											"path": [
 												"api",
 												"users",
-												"all"
+												"66242229ef209a57a75196af"
 											]
 										}
 									},
@@ -68,6 +82,20 @@
 								},
 								{
 									"name": "Create",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"request": {
 										"method": "POST",
 										"header": [],
@@ -81,12 +109,12 @@
 											}
 										},
 										"url": {
-											"raw": "http://localhost:3000/api/users",
+											"raw": "http://localhost:3002/api/users",
 											"protocol": "http",
 											"host": [
 												"localhost"
 											],
-											"port": "3000",
+											"port": "3002",
 											"path": [
 												"api",
 												"users"
@@ -97,16 +125,30 @@
 								},
 								{
 									"name": "Remove",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"request": {
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:3000/api/users/66242229ef209a57a75196af",
+											"raw": "http://localhost:3002/api/users/66242229ef209a57a75196af",
 											"protocol": "http",
 											"host": [
 												"localhost"
 											],
-											"port": "3000",
+											"port": "3002",
 											"path": [
 												"api",
 												"users",
@@ -117,209 +159,6 @@
 									"response": []
 								}
 							]
-						},
-						{
-							"name": "steps",
-							"item": [
-								{
-									"name": "GetSteps",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "http://localhost:3000/api/steps",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "3000",
-											"path": [
-												"api",
-												"steps"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Create",
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n \"userId\": \"661e330cbca6df6cdde0b7df\",\n\"date\": \"2024-04-20T10:36:34.951Z\",\n\"count\": 123456\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "http://localhost:3000/api/steps/stepCount",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "3000",
-											"path": [
-												"api",
-												"steps",
-												"stepCount"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "UpdateSteps",
-									"request": {
-										"method": "PUT",
-										"header": [],
-										"url": {
-											"raw": "http://localhost:3000/api/steps?stepCount=66242229ef209a57a75196af",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "3000",
-											"path": [
-												"api",
-												"steps"
-											],
-											"query": [
-												{
-													"key": "stepCount",
-													"value": "66242229ef209a57a75196af"
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "DeleteSteps",
-									"request": {
-										"method": "DELETE",
-										"header": [],
-										"url": {
-											"raw": "http://localhost:3000/api/steps?stepCounts=66242229ef209a57a75196af",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "3000",
-											"path": [
-												"api",
-												"steps"
-											],
-											"query": [
-												{
-													"key": "stepCounts",
-													"value": "66242229ef209a57a75196af"
-												}
-											]
-										}
-									},
-									"response": []
-								}
-							]
-						},
-						{
-							"name": "goals",
-							"item": [
-								{
-									"name": "GetGoals",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "http://localhost:3000/api/goals",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "3000",
-											"path": [
-												"api",
-												"goals"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Update",
-									"request": {
-										"method": "PUT",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "http://localhost:3000/api/users?66242229ef209a57a75196af=goals",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "3000",
-											"path": [
-												"api",
-												"users"
-											],
-											"query": [
-												{
-													"key": "66242229ef209a57a75196af",
-													"value": "goals"
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "CreateGoals",
-									"request": {
-										"method": "POST",
-										"header": []
-									},
-									"response": []
-								},
-								{
-									"name": "RemoveGoals",
-									"request": {
-										"method": "DELETE",
-										"header": [],
-										"url": {
-											"raw": "http://localhost:3000/api/goals",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "3000",
-											"path": [
-												"api",
-												"goals"
-											]
-										}
-									},
-									"response": []
-								}
-							]
-						},
-						{
-							"name": "calories",
-							"item": []
-						},
-						{
-							"name": "workouts",
-							"item": []
 						}
 					]
 				},
@@ -362,12 +201,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:3000/api/users",
+									"raw": "http://localhost:3002/api/users",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
-									"port": "3000",
+									"port": "3002",
 									"path": [
 										"api",
 										"users"
@@ -418,12 +257,12 @@
 								"method": "PUT",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:3000/api/users?userID",
+									"raw": "http://localhost:3002/api/users?userID",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
-									"port": "3000",
+									"port": "3002",
 									"path": [
 										"api",
 										"users"
@@ -476,12 +315,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:3000/api/users?userID",
+									"raw": "http://localhost:3002/api/users?userID",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
-									"port": "3000",
+									"port": "3002",
 									"path": [
 										"api",
 										"users"
@@ -575,12 +414,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:3000/api/users",
+									"raw": "http://localhost:3002/api/users",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
-									"port": "3000",
+									"port": "3002",
 									"path": [
 										"api",
 										"users"
@@ -683,12 +522,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:3000/api/users?disconnet=false",
+									"raw": "http://localhost:3002/api/users?disconnet=false",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
-									"port": "3000",
+									"port": "3002",
 									"path": [
 										"api",
 										"users"
@@ -725,12 +564,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/steps",
+							"raw": "http://localhost:3002/api/steps",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "3002",
 							"path": [
 								"api",
 								"steps"
@@ -766,12 +605,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/calories",
+							"raw": "http://localhost:3002/api/calories",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "3002",
 							"path": [
 								"api",
 								"calories"
@@ -800,12 +639,12 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/steps/date",
+							"raw": "http://localhost:3002/api/steps/date",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "3002",
 							"path": [
 								"api",
 								"steps",
@@ -817,9 +656,77 @@
 				},
 				{
 					"name": "4-Filter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Check if the response status code is 200 OK",
+									"       pm.test(\"Status code is 200 OK\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Verify API returns correct data with specific filters\", function () {",
+									"    const responseBody = pm.response.json();",
+									"",
+									"    // Check if the response contains the expected keys",
+									"    pm.expect(responseBody).to.have.property(\"goals\");",
+									"    pm.expect(responseBody).to.have.property(\"currentPage\");",
+									"    pm.expect(responseBody).to.have.property(\"totalPages\");",
+									"    pm.expect(responseBody).to.have.property(\"totalGoals\");",
+									"",
+									"    // Check if currentPage in response matches the value of page in the request URL",
+									"    pm.expect(responseBody.currentPage).to.equal(6);",
+									"",
+									"    // Check if the goals array is not empty",
+									"    pm.expect(responseBody.goals.length).to.be.above(0);",
+									"",
+									"    // Check if totalPages is greater than 0",
+									"    pm.expect(responseBody.totalPages).to.be.above(0);",
+									"",
+									"    // Check if the data is sorted by createdAt field in descending order",
+									"    const goals = responseBody.goals;",
+									"    for (let i = 0; i < goals.length - 1; i++) {",
+									"        const currentCreatedAt = new Date(goals[i].createdAt);",
+									"        const nextCreatedAt = new Date(goals[i + 1].createdAt);",
+									"        pm.expect(currentCreatedAt).to.be.at.least(nextCreatedAt);",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/api/goals?page=6&sortField=createdAt&sortOrder=desc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"goals"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "6"
+								},
+								{
+									"key": "sortField",
+									"value": "createdAt"
+								},
+								{
+									"key": "sortOrder",
+									"value": "desc"
+								}
+							]
+						}
 					},
 					"response": []
 				},
@@ -844,7 +751,7 @@
 									"    pm.expect(responseBody.currentPage).to.equal(2);",
 									"    pm.expect(responseBody.totalPages).to.equal(10);",
 									"    // Check if the goals array is not empty",
-									"    pm.expect(responseBody.activities.length).to.be.above(0);",
+									"    pm.expect(responseBody.goals.length).to.be.above(10);",
 									"});"
 								],
 								"type": "text/javascript",
@@ -856,12 +763,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/goals?page=2&limit=1",
+							"raw": "http://localhost:3002/api/goals?page=2&limit=1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "3002",
 							"path": [
 								"api",
 								"goals"
@@ -882,20 +789,56 @@
 				},
 				{
 					"name": "6-Testhanling",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Test Handling of Special Characters and Non-English Text in POST request\", function () {",
+									"    // Check if the response status code is 201 Created",
+									"    pm.response.to.have.status(201);",
+									"",
+									"    // Parse the response body as JSON",
+									"    const responseBody = pm.response.json();",
+									"",
+									"    // Check if the response contains the input data",
+									"    pm.expect(responseBody).to.have.property(\"userId\");",
+									"    pm.expect(responseBody.userId).to.equal(\"åäöÅÄÖ\");",
+									"    pm.expect(responseBody).to.have.property(\"Date\");",
+									"    pm.expect(responseBody.Date).to.equal(\"step\");",
+									"});",
+									"",
+									"pm.test(\"Delete the created user by ID\", function () {",
+									"    // Parse the response body as JSON",
+									"    const responseBody = pm.response.json();",
+									"",
+									"    // Check if the response contains the user ID",
+									"    pm.expect(responseBody).to.have.property(\"_id\");",
+									"",
+									"    // Get the user ID from the response",
+									"    const userId = responseBody._id;",
+									"",
+									"    ",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/users/all",
+							"raw": "http://localhost:3002/api/steps",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "3002",
 							"path": [
 								"api",
-								"users",
-								"all"
+								"steps"
 							]
 						}
 					},
@@ -954,12 +897,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/goals?dailyStepGoals",
+							"raw": "http://localhost:3002/api/goals?dailyStepGoals",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "3002",
 							"path": [
 								"api",
 								"goals"
@@ -969,6 +912,63 @@
 									"key": "dailyStepGoals",
 									"value": null
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "13-RateLimit",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Rate limit test",
+									"pm.test(\"Rate limit test\", function () {",
+									"    for (let i = 0; i < 101; i++) { // Send 101 requests",
+									"        pm.sendRequest({",
+									"            url: 'http://localhost:3002/api/activities', ",
+									"            method: 'GET',",
+									"           ",
+									"        }, function (err, response) {",
+									"            if (err) {",
+									"                console.error('Error:', err);",
+									"                return;",
+									"            }",
+									"",
+									"            // Check that a status code 429 is returned when the limit is exceeded",
+									"            if (i < 100) {",
+									"                pm.response.to.have.status(200); // Expect a successful status for the first 100 requests",
+									"            } else {",
+									"                pm.response.to.have.status(429); // Expect status code 429 for the 101st request",
+									"                pm.expect(response.json().message).to.eql(\"Too many request from this IP, please try again in an 15 minutes.\"); // Check the error message",
+									"            }",
+									"        });",
+									"    }",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/api/activities",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"activities"
 							]
 						}
 					},
