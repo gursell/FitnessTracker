@@ -18,7 +18,7 @@ You can start by cloning this project to your local machine. Then follow the ste
     "type": "module"
 5- Run the server: Start your server by running the following command in the terminal:
    <node server.js>
-6- Verify server status: Once the server is running, you should see the message "Listening on port http://localhost:3000" in the terminal. 
+6- Verify server status: Once the server is running, you should see the message "Listening on port http://localhost:3002" in the terminal. 
 7- Generate mock data: To generate mock data, install Faker.js by running the following command in the terminal:
     <npm install @faker-js/faker --save-dev> 
 8- Run seed script: Generate mock data by running the following command in the terminal:
